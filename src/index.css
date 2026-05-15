@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+/* ========================================= */
+/*  STYLISH BRAND TYPOGRAPHY & ANIMATIONS    */
+/* ========================================= */
+
+/* Brand logo — Playfair Display for elegance */
+.font-display {
+  font-family: 'Playfair Display', serif;
+  font-feature-settings: "liga", "dlig";
+  letter-spacing: -0.02em;
+}
+
+/* Bebas Neue for stylish caps headers */
+.font-stencil {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* Animated gradient text */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animated-gradient-text {
+  background: linear-gradient(90deg, #f43f5e 0%, #f97316 25%, #f59e0b 50%, #f97316 75%, #f43f5e 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  animation: shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Sparkle floating animation */
+@keyframes float-sparkle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+  50% { transform: translateY(-6px) rotate(180deg); opacity: 0.7; }
+}
+
+.sparkle-float {
+  animation: float-sparkle 2.5s ease-in-out infinite;
+}
+
+/* Glow pulse */
+@keyframes glow-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(244, 63, 94, 0.4), 0 0 40px rgba(249, 115, 22, 0.2);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(244, 63, 94, 0.6), 0 0 60px rgba(249, 115, 22, 0.4);
+  }
+}
+
+.glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Underline accent */
+.brand-underline {
+  position: relative;
+}
+
+.brand-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f43f5e, #f97316, #f59e0b);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.group:hover .brand-underline::after {
+  transform: scaleX(1);
+}
+
+/* Text stroke for fancy effects */
+.text-stroke-white {
+  -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+}
+
+/* Smooth scrollbar hide */
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { scrollbar-width: none; }
+
+/* Premium card hover */
+@keyframes subtle-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
